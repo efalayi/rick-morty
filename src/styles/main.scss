@@ -12,13 +12,14 @@ code {
     monospace;
 }
 
-.app {
-  text-align: center;
+// Utilities
+.block {
+  display: block;
 }
 
-.app-logo {
-  height: 40vmin;
-  pointer-events: none;
+// App
+.app {
+  text-align: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -27,7 +28,7 @@ code {
   }
 }
 
-.app-header {
+.app-main {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -36,17 +37,4 @@ code {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.app-link {
-  color: #61dafb;
-}
-
-@keyframes app-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
