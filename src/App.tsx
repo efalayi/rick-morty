@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
-import {getCharacters} from './api/http';
-import {ICharacterModel} from './api/types';
+import Character from "./components/character/index";
+import { getCharacters } from "./api/http";
+import { ICharacterModel } from "./api/types";
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -14,11 +15,11 @@ function App() {
         const { rmCharacters } = await getCharacters();
         setCharacters(rmCharacters);
       } catch (error) {
-        console.log('api error: ', error);
+        console.log("api error: ", error);
       }
       setIsLoading(false);
     }
-    loadInitialData()
+    loadInitialData();
   }, []);
 
   return (
@@ -26,23 +27,17 @@ function App() {
       <main className="app-main">
         <p>Rick and Morty Characters</p>
 
-        {isLoading ? (<span>Loading...</span>) : (
-        <div>
-          <ul>
+        {isLoading ? (
+          <span>Loading...</span>
+        ) : (
+          <div className="flex flex-row flex-wrap">
             {characters.map((character) => {
               return (
-                <li key={character.id}>
-                  <span className="block">{character.name}</span>
-                  <span className="block">{character.species}</span>
-                  <span className="block">{character.origin.name}</span>
-                  <span className="block">{character.location.name}</span>
-                  <span className="block">Episodes</span>
-                </li>
-              )
+                <Character key={character.id} {...character} />
+              );
             })}
-          </ul>
-        </div>
-      )}
+          </div>
+        )}
       </main>
     </div>
   );

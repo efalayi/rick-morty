@@ -1,0 +1,23 @@
+$black: #282C34;
+
+// Spacer
+$spacer: 1.6rem !default;
+$spacers: (
+  0: 0,
+  1: $spacer * .5,        // 8px
+  2: $spacer,             // 16px
+  3: $spacer * 1.5,       // 24px
+  4: $spacer * 2,         // 32px
+) !default;
+
+// Grid breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1440px
+) !default;
+
+$border-radius: 0.25rem;
