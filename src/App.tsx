@@ -38,12 +38,16 @@ function App() {
   return (
     <div className="app">
       <main className="app-main">
-        <header className="py-2">
-          <h1 className="text--center text--coral">Rick and Morty Characters</h1>
+        <header className="py-4">
+          <h1 className="text--center text--coral">
+            Rick and Morty Characters
+          </h1>
         </header>
 
         {isLoading ? (
-          <span>Loading...</span>
+         <div className="flex flex-row align-center">
+            <span>Loading...</span>
+         </div>
         ) : (
           <div className="flex flex-row flex-wrap">
             {characters.map((character) => {

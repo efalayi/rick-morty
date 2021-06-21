@@ -60,7 +60,8 @@ $spacer-1: map-get($spacers, 1);
 
   .description__item {
     flex: 1;
-    display: block;
+    display: inline-flex;
+    align-items: center;
     width: 100%;
     white-space: nowrap;
     overflow: hidden;
@@ -75,13 +76,6 @@ $spacer-1: map-get($spacers, 1);
 }
 
 .view-more {
-  @extend .text--sm;
-  padding: 4px $spacer;
-  cursor: pointer;
-  border: 1px solid transparent;
-  outline: 0;
-  font-weight: 600;
-  border-radius: $border-radius;
   background-color: $coral;
 
   &:hover {

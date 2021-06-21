@@ -4,6 +4,21 @@
 @import "./grid";
 @import "./utilities";
 
+// button
+button {
+  padding: 4px $spacer;
+  cursor: pointer;
+  border: 1px solid transparent;
+  outline: 0;
+  font-weight: 600;
+  border-radius: $border-radius;
+  @extend .text--sm;
+
+  &:hover {
+    border-color: $black;
+  }
+}
+
 // App
 .app {
   background-color: rgb(32, 35, 41);
@@ -12,6 +27,11 @@
 
 .app-main {
   height: 100%;
+
+  @media screen and (min-width: map-get($grid-breakpoints, "lg")) {
+    max-width: 960px;
+    margin: 0 auto;
+  }
 }
 
 // location
@@ -54,7 +74,7 @@
   max-width: 520px;
   margin: map-get($spacers, 1);
 
-  @media screen and (min-width: 560px) {
+  @media screen and (min-width: map-get($grid-breakpoints, "sm")) {
     margin-top: map-get($spacers, 4);
     margin-bottom: map-get($spacers, 4);
   }
