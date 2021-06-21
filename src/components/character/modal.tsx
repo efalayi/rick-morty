@@ -40,19 +40,13 @@ const CharacterModal = (props: IProps) => {
                 <b>Origin: </b>
                 <ul className="location-info">
                   {character?.origin.name && (
-                    <li className="location-info__item capitalize">
-                      {character.origin.name}
-                    </li>
+                    <li className="location-info__item capitalize">{character.origin.name}</li>
                   )}
                   {character?.origin.dimension && (
-                    <li className="location-info__item capitalize">
-                      {character.origin.dimension}
-                    </li>
+                    <li className="location-info__item capitalize">{character.origin.dimension}</li>
                   )}
                   {character?.origin.type && (
-                    <li className="location-info__item capitalize">
-                      {character.origin.type}
-                    </li>
+                    <li className="location-info__item capitalize">{character.origin.type}</li>
                   )}
                   {character?.origin.residents && (
                     <li className="location-info__item capitalize">
@@ -65,9 +59,7 @@ const CharacterModal = (props: IProps) => {
                 <b>Location: </b>
                 <ul className="location-info">
                   {character?.location.name && (
-                    <li className="location-info__item capitalize">
-                      {character.location.name}
-                    </li>
+                    <li className="location-info__item capitalize">{character.location.name}</li>
                   )}
                   {character?.location.dimension && (
                     <li className="location-info__item capitalize">
@@ -75,9 +67,7 @@ const CharacterModal = (props: IProps) => {
                     </li>
                   )}
                   {character?.location.type && (
-                    <li className="location-info__item capitalize">
-                      {character.location.type}
-                    </li>
+                    <li className="location-info__item capitalize">{character.location.type}</li>
                   )}
                   {character?.location.residents && (
                     <li className="location-info__item capitalize">

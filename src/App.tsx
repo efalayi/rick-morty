@@ -6,7 +6,7 @@ import Pagination from "./components/pagination";
 import { getCharacters } from "./api/character";
 import { ICharacterModel, IPageMetaModel } from "./api/types";
 
-const DEFAULT_ERROR_MESSAGE = 'An error occurred. Please try again';
+const DEFAULT_ERROR_MESSAGE = "An error occurred. Please try again";
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -26,9 +26,9 @@ function App() {
     setShowModal(false);
   };
 
-  const handleNextButtonClick = async () => {    
+  const handleNextButtonClick = async () => {
     if (pageMeta?.next) {
-      const [nextPageNumber] = pageMeta.next.split('page=').slice(-1);
+      const [nextPageNumber] = pageMeta.next.split("page=").slice(-1);
 
       setIsLoading(true);
       try {
@@ -37,7 +37,7 @@ function App() {
         setPageMeta(meta);
       } catch (error) {
         const errorMessage = error?.message || DEFAULT_ERROR_MESSAGE;
-        setError(errorMessage)
+        setError(errorMessage);
       }
       setIsLoading(false);
     }
@@ -45,7 +45,7 @@ function App() {
 
   const handlePrevButtonClick = async () => {
     if (pageMeta?.prev) {
-      const [prevPageNumber] = pageMeta.prev.split('page=').slice(-1);
+      const [prevPageNumber] = pageMeta.prev.split("page=").slice(-1);
 
       setIsLoading(true);
       try {
@@ -54,7 +54,7 @@ function App() {
         setPageMeta(meta);
       } catch (error) {
         const errorMessage = error?.message || DEFAULT_ERROR_MESSAGE;
-        setError(errorMessage)
+        setError(errorMessage);
       }
       setIsLoading(false);
     }
@@ -69,7 +69,7 @@ function App() {
         setPageMeta(meta);
       } catch (error) {
         const errorMessage = error?.message || DEFAULT_ERROR_MESSAGE;
-        setError(errorMessage)
+        setError(errorMessage);
       }
       setIsLoading(false);
     }
@@ -83,7 +83,7 @@ function App() {
           <h1 className="text--center text--coral">Rick and Morty</h1>
         </header>
 
-        {error && (<span className="app-error">{error}</span>)}
+        {error && <span className="app-error">{error}</span>}
 
         {isLoading ? (
           <div className="flex flex-row align-center">

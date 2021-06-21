@@ -73,9 +73,7 @@ export function getEpisode(id: string) {
   const currentState = getAppStorage();
   const currentEpisodes = currentState.episodes;
 
-  const [episode] = currentEpisodes.filter(
-    (episode: ILocationModel) => episode.id === episodeId
-  );
+  const [episode] = currentEpisodes.filter((episode: ILocationModel) => episode.id === episodeId);
 
   return episode;
 }

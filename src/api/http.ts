@@ -2,8 +2,8 @@ export const API_BASE_URL = "https://rickandmortyapi.com/api";
 
 export async function http(url: string, options: object) {
   const response = await fetch(url, {
-   ...options,
-   mode: 'cors',
+    ...options,
+    mode: "cors",
   });
   const responseData = await response.json();
 
