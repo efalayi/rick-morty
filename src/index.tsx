@@ -1,8 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./styles/main.scss";
+
+import { initialiseAppStorage } from "./lib/storage";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+
+initialiseAppStorage();
 
 ReactDOM.render(
   <React.StrictMode>

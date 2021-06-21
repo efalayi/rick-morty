@@ -1,4 +1,13 @@
-interface ILocationModel {
+export interface IEpisodeModel {
+  id: number;
+  name: string;
+  air_date: string;
+  episode: string;
+  characters: string[];
+  url: string;
+}
+
+export interface ILocationModel {
   id: number;
   name: string;
   type: string;

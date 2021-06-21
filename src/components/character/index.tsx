@@ -16,15 +16,15 @@ const Character = (props: IProps) => {
         <span className="character__description">
           <span className="description__item character__origin">
             <b>Origin: </b>
-            <small className="capitalize">{props.origin.name}</small>
+            <small className="capitalize">{props.origin?.name}</small>
           </span>
           <span className="description__item character__location">
             <b>Location: </b>
-            <small className="capitalize">{props.location.name}</small>
+            <small className="capitalize">{props.location?.name}</small>
           </span>
           <span className="description__item character__episodes">
             <b>Episodes: </b>
-            <small className="capitalize">{props.episode.length}</small>
+            <small className="capitalize">{props.episode?.length}</small>
           </span>
 
           <span className="flex flex-row content-end">

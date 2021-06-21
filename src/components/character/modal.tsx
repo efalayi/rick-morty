@@ -62,10 +62,6 @@ const CharacterModal = (props: IProps) => {
   };
 
   useEffect(() => {
-    // function updateModal() {
-    //   console.log("update modal");
-    // }
-
     modalRoot?.appendChild(element);
 
     return function unmount() {
