@@ -1,6 +1,8 @@
 $black: #282C34;
 $white: whitesmoke;
 $coral: coral;
+$grey: silver;
+$red: indianred;
 
 // Spacer
 $spacer: 1.6rem !default;
@@ -23,3 +25,5 @@ $grid-breakpoints: (
 ) !default;
 
 $border-radius: 0.25rem;
+
+$overlay-bg: rgba(0, 0, 0, 0.65);

@@ -1,3 +1,9 @@
+export interface IPageMetaModel {
+  count: number;
+  pages: number;
+  next: string;
+  prev: string;
+}
 export interface IEpisodeModel {
   id: number;
   name: string;

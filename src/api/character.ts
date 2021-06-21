@@ -1,5 +1,5 @@
 import { saveEpisode, saveLocation, getEpisode, getLocation } from "../lib/storage";
-import { http, API_BASE_URL } from "./http";
+import { getData, API_BASE_URL } from "./http";
 import { ICharacterModel } from "./types";
 
 async function getRMEpisode(episodeUrl: string) {
@@ -7,7 +7,7 @@ async function getRMEpisode(episodeUrl: string) {
   let episode = getEpisode(episodeId);
 
   if (!episode) {
-    episode = await http(episodeUrl);
+    episode = await getData(episodeUrl);
     saveEpisode(episode);
   }
 
@@ -31,12 +31,12 @@ async function buildRMCharacter(character: ICharacterModel) {
     : getLocation(originId);
 
   if (!characterLocation) {
-    characterLocation = await http(character.location.url);
+    characterLocation = await getData(character.location.url);
     saveLocation(characterLocation);
   }
 
   if (!characterOrigin) {
-    characterOrigin = await http(character.origin.url);
+    characterOrigin = await getData(character.origin.url);
     saveLocation(characterOrigin);
   }
 
@@ -60,14 +60,16 @@ async function buildRMCharacters(apiResult: ICharacterModel[]) {
   }
 }
 
-export async function getCharacters() {
+export async function getCharacters(page: string = "1") {
+  const pageNumber = Number.parseInt(page);
+
   try {
-    const { info, results } = await http(`${API_BASE_URL}/character`);
+    const { info, results } = await getData(`${API_BASE_URL}/character?page=${pageNumber}`);
     const rmCharacters = await buildRMCharacters(results);
 
     return {
       rmCharacters,
-      info,
+      meta: info,
     };
   } catch (error) {
     return Promise.reject(error);

@@ -6,27 +6,39 @@
 
 // button
 button {
+  @extend .text--sm;
   padding: 4px $spacer;
   cursor: pointer;
   border: 1px solid transparent;
   outline: 0;
   font-weight: 600;
+  text-transform: lowercase;
   border-radius: $border-radius;
-  @extend .text--sm;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 
   &:hover {
     border-color: $black;
+  }
+
+  &:disabled {
+    background-color: grey;
+    color: $black;
+    cursor: not-allowed;
+    border: 0;
   }
 }
 
 // App
 .app {
+  position: relative;
   background-color: rgb(32, 35, 41);
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .app-main {
+  position: relative;
   height: 100%;
+  overflow-y: scroll;
 
   @media screen and (min-width: map-get($grid-breakpoints, "lg")) {
     max-width: 960px;
@@ -34,11 +46,27 @@ button {
   }
 }
 
+.app-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: map-get($spacers, 2);
+  background-color: rgba($red, 0.1);
+  border: 1px solid $red;
+}
+
+.app-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: map-get($spacers, 2);
+  background-color: $overlay-bg;
+}
+
 // location
 .location-info {
   display: inline-block;
-  margin: 0;
-  padding: 0;
   list-style: none;
   font-size: 80%;
 
@@ -59,7 +87,7 @@ button {
 }
 
 .modal__overlay {
-  background-color: rgba(0,0,0,0.5);
+  background-color: $overlay-bg;
   position: fixed;
   height: 100%;
   width: 100%;
@@ -91,16 +119,13 @@ button {
   overflow: hidden;
 }
 
-.modal-close {
-
-}
-
 .modal__header {
   flex: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: map-get($spacers, 2) map-get($spacers, 3);
+  border-bottom: 1px solid rgba($grey, 0.3);
   color: $black;
 }
 

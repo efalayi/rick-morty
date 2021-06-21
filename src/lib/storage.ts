@@ -3,18 +3,18 @@ import { ILocationModel, IEpisodeModel } from "../api/types";
 export const APP_NAME = "RICK_MORTY";
 
 function getAppStorage() {
-  const appStore = localStorage.getItem(APP_NAME);
+  const appStore = sessionStorage.getItem(APP_NAME);
   const currentState = appStore ? JSON.parse(appStore) : {};
 
   return currentState;
 }
 
 export function initialiseAppStorage() {
-  const appStore = localStorage.getItem(APP_NAME);
+  const appStore = sessionStorage.getItem(APP_NAME);
 
   if (!appStore) {
     const state = { episodes: [], locations: [] };
-    localStorage.setItem(APP_NAME, JSON.stringify(state));
+    sessionStorage.setItem(APP_NAME, JSON.stringify(state));
   }
 }
 
@@ -33,7 +33,7 @@ export function saveLocation(newLocation: ILocationModel) {
       locations: updatedLocations,
     };
 
-    localStorage.setItem(APP_NAME, JSON.stringify(state));
+    sessionStorage.setItem(APP_NAME, JSON.stringify(state));
   }
 }
 
@@ -52,7 +52,7 @@ export function saveEpisode(newEpisode: IEpisodeModel) {
       episodes: updatedEpisodes,
     };
 
-    localStorage.setItem(APP_NAME, JSON.stringify(state));
+    sessionStorage.setItem(APP_NAME, JSON.stringify(state));
   }
 }
 

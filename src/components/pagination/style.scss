@@ -1,0 +1,33 @@
+@import "../../styles/variables";
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+
+.page-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: map-get($spacers, 1) map-get($spacers, 2);
+  font-size: 1.8rem;
+  text-transform: lowercase;
+  color: $coral;
+  text-align: center;
+  vertical-align: middle;
+  border: 2px solid $coral;
+  background-color: transparent;
+  border-radius: $border-radius;
+  margin-right: map-get($spacers, 3);
+  cursor: pointer;
+
+  &:last-child { margin-right: 0; }
+
+  &:not(:disabled):hover {
+    color: $white;
+    background-color: $coral;
+    border-color: $coral;
+  }
+}
