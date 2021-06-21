@@ -11,6 +11,9 @@ p {
   padding: 0;
 }
 
-.text-sm { font-size: 14px; }
+.text--sm { font-size: 14px; }
 
+.text--muted { color: grey; }
+.text--coral { color: $coral; }
+.text--center { text-align: center; }
 .capitalize { text-transform: capitalize; }

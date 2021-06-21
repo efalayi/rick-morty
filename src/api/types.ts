@@ -1,3 +1,20 @@
+interface ILocationModel {
+  id: number;
+  name: string;
+  type: string;
+  dimension: string;
+  residents: string [];
+  url: string;
+}
+
+interface IOriginModel {
+  id: number;
+  name: string;
+  type: string;
+  dimension: string;
+  residents: string [];
+  url: string;
+}
 export interface IEpisodeModel {
   id: number;
   name: string;
@@ -15,35 +32,9 @@ export interface ICharacterModel {
   species: string;
   type: string;
   gender: string;
-  origin: {
-    name: string;
-    url: string;
-  },
-  location: {
-    name: string;
-    url: string;
-  },
+  origin: ILocationModel,
+  location: ILocationModel,
   image: string;
   episode: string[];
-  url: string;
-}
-
-export interface IRMCharacterModel {
-  id: number;
-  name: string;
-  status: string;
-  species: string;
-  type: string;
-  gender: string;
-  origin: {
-    name: string;
-    url: string;
-  },
-  location: {
-    name: string;
-    url: string;
-  },
-  image: string;
-  episodes: IEpisodeModel[];
   url: string;
 }

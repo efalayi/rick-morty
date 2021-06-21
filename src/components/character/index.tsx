@@ -1,9 +1,11 @@
-import React from "react";
-
 import { ICharacterModel } from "../../api/types";
 import "./style.scss";
 
-const Character = (props: ICharacterModel) => {
+interface IProps extends ICharacterModel {
+  onClick: () => void;
+}
+
+const Character = (props: IProps) => {
   return (
     <div className="character">
       <h3 className="character__name">{props.name}</h3>
@@ -26,7 +28,7 @@ const Character = (props: ICharacterModel) => {
           </span>
 
           <span className="flex flex-row content-end">
-            <button className="view-more">More</button>
+            <button className="view-more" onClick={props.onClick}>view</button>
           </span>
         </span>
       </div>

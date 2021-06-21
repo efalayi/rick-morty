@@ -66,7 +66,7 @@ $spacer-1: map-get($spacers, 1);
     overflow: hidden;
     text-overflow: ellipsis;
     margin-bottom: $spacer-1;
-    @extend .text-sm;
+    @extend .text--sm;
 
     &:last-child {
       margin-bottom: 0rem;
@@ -75,7 +75,7 @@ $spacer-1: map-get($spacers, 1);
 }
 
 .view-more {
-  @extend .text-sm;
+  @extend .text--sm;
   padding: 4px $spacer;
   cursor: pointer;
   border: 1px solid transparent;
