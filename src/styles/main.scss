@@ -14,6 +14,24 @@
   height: 100%;
 }
 
+// location
+.location-info {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 80%;
+
+  .location-info__item {
+    display: inline;
+    &:not(:last-child) {
+      &::after {
+        @extend .delimiter;
+      }
+    }
+  }
+}
+
 // modal
 #modal-root {
   position: relative;

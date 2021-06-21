@@ -23,21 +23,21 @@ async function buildRMCharacter(character: ICharacterModel) {
   const [locationId] = character.location.url.split("/").slice(-1);
   const [originId] = character.origin.url.split("/").slice(-1);
 
-  let characterLocation = getLocation(locationId);
-  let characterOrigin = locationId === originId ? characterLocation : getLocation(originId);
+  let characterLocation = !character.location.url ? character.location : getLocation(locationId);
+  let characterOrigin = !character.origin.url
+    ? character.origin
+    : locationId === originId
+    ? characterLocation
+    : getLocation(originId);
 
-  if (character.location.url) {
-    if (!characterLocation) {
-      characterLocation = await http(character.location.url);
-      saveLocation(characterLocation);
-    }
+  if (!characterLocation) {
+    characterLocation = await http(character.location.url);
+    saveLocation(characterLocation);
   }
 
-  if (character.origin.url) {
-    if (!characterOrigin) {
-      characterOrigin = await http(character.origin.url);
-      saveLocation(characterOrigin);
-    }
+  if (!characterOrigin) {
+    characterOrigin = await http(character.origin.url);
+    saveLocation(characterOrigin);
   }
 
   rmCharacter.episode = await Promise.all(episodeUrls);

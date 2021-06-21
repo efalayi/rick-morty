@@ -38,17 +38,53 @@ const CharacterModal = (props: IProps) => {
               </span>
               <span className="block mb-1">
                 <b>Origin: </b>
-                <small className="capitalize delimiter">{character?.origin.name}</small>
-                <small className="capitalize delimiter">{character?.origin.dimension}</small>
-                <small className="capitalize delimiter">{character?.origin.type}</small>
-                <small className="capitalize">{character?.origin.residents?.length}</small>
+                <ul className="location-info">
+                  {character?.origin.name && (
+                    <li className="location-info__item capitalize">
+                      {character.origin.name}
+                    </li>
+                  )}
+                  {character?.origin.dimension && (
+                    <li className="location-info__item capitalize">
+                      {character.origin.dimension}
+                    </li>
+                  )}
+                  {character?.origin.type && (
+                    <li className="location-info__item capitalize">
+                      {character.origin.type}
+                    </li>
+                  )}
+                  {character?.origin.residents && (
+                    <li className="location-info__item capitalize">
+                      {character.origin.residents.length}
+                    </li>
+                  )}
+                </ul>
               </span>
               <span className="block mb-1">
                 <b>Location: </b>
-                <small className="capitalize delimiter">{character?.location.name}</small>
-                <small className="capitalize delimiter">{character?.location.dimension}</small>
-                <small className="capitalize delimiter">{character?.location.type}</small>
-                <small className="capitalize">{character?.location.residents?.length}</small>
+                <ul className="location-info">
+                  {character?.location.name && (
+                    <li className="location-info__item capitalize">
+                      {character.location.name}
+                    </li>
+                  )}
+                  {character?.location.dimension && (
+                    <li className="location-info__item capitalize">
+                      {character.location.dimension}
+                    </li>
+                  )}
+                  {character?.location.type && (
+                    <li className="location-info__item capitalize">
+                      {character.location.type}
+                    </li>
+                  )}
+                  {character?.location.residents && (
+                    <li className="location-info__item capitalize">
+                      {character.location.residents.length}
+                    </li>
+                  )}
+                </ul>
               </span>
               <span className="block">
                 <b>Episodes: </b>
