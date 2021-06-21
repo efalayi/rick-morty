@@ -2,6 +2,10 @@ import { ILocationModel, IEpisodeModel } from "../api/types";
 
 export const APP_NAME = "RICK_MORTY";
 
+/**
+ * @summary Gets current app state from sessionStorage
+ * @return {Object} 
+ */
 function getAppStorage() {
   const appStore = sessionStorage.getItem(APP_NAME);
   const currentState = appStore ? JSON.parse(appStore) : {};
@@ -9,6 +13,9 @@ function getAppStorage() {
   return currentState;
 }
 
+/**
+ * @summary Initialises app state in sessionStorage
+ */
 export function initialiseAppStorage() {
   const appStore = sessionStorage.getItem(APP_NAME);
 
@@ -18,6 +25,10 @@ export function initialiseAppStorage() {
   }
 }
 
+/**
+ * @summary Saves a new location to sessionStorage
+ * @param {ILocationModel} newLocation
+ */
 export function saveLocation(newLocation: ILocationModel) {
   const currentState = getAppStorage();
   const currentLocations = currentState.locations;
@@ -37,6 +48,10 @@ export function saveLocation(newLocation: ILocationModel) {
   }
 }
 
+/**
+ * @summary Saves a new episode to sessionStorage
+ * @param {IEpisodeModel} newEpisode
+ */
 export function saveEpisode(newEpisode: IEpisodeModel) {
   const currentState = getAppStorage();
   const currentEpisodes = currentState.episodes;
@@ -56,6 +71,11 @@ export function saveEpisode(newEpisode: IEpisodeModel) {
   }
 }
 
+/**
+ * @summary Gets a location from sessionStorage using locationId
+ * @param {string} id
+ * @return {ILocationModel} location
+ */
 export function getLocation(id: string) {
   const locationId = Number.parseInt(id, 10);
   const currentState = getAppStorage();
@@ -68,6 +88,11 @@ export function getLocation(id: string) {
   return location;
 }
 
+/**
+ * @summary Gets an episode from sessionStorage using episodeId
+ * @param {string} id
+ * @return {ILocationModel} episode
+ */
 export function getEpisode(id: string) {
   const episodeId = Number.parseInt(id, 10);
   const currentState = getAppStorage();

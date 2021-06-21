@@ -2,6 +2,11 @@ import { saveEpisode, saveLocation, getEpisode, getLocation } from "../lib/stora
 import { getData, API_BASE_URL } from "./http";
 import { ICharacterModel } from "./types";
 
+/**
+ * @summary Gets an episode
+ * @param {string} episodeUrl
+ * @return {string} name
+ */
 async function getRMEpisode(episodeUrl: string) {
   const [episodeId] = episodeUrl.split("/").slice(-1);
   let episode = getEpisode(episodeId);
@@ -15,6 +20,11 @@ async function getRMEpisode(episodeUrl: string) {
   return name;
 }
 
+/**
+ * @summary Formats and sets location and origin for a character
+ * @param {ICharacterModel} character
+ * @return {ICharacterModel} rmCharacter
+ */
 async function buildRMCharacter(character: ICharacterModel) {
   const rmCharacter = { ...character };
   const episodeUrls = character.episode.map((episodeUrl) => {
@@ -47,6 +57,11 @@ async function buildRMCharacter(character: ICharacterModel) {
   return rmCharacter;
 }
 
+/**
+ * @summary Formats and sets location and origin for fetched characters
+ * @param {ICharacterModel[]} apiResult
+ * @return {ICharacterModel[] | Object} 
+ */
 async function buildRMCharacters(apiResult: ICharacterModel[]) {
   const characters = apiResult.map((character) => {
     return buildRMCharacter(character);
@@ -60,6 +75,11 @@ async function buildRMCharacters(apiResult: ICharacterModel[]) {
   }
 }
 
+/**
+ * @summary Gets characters using page attribute
+ * @param {string} [page="1"]
+ * @return {Object} 
+ */
 export async function getCharacters(page: string = "1") {
   const pageNumber = Number.parseInt(page);
 
