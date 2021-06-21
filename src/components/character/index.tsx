@@ -28,7 +28,9 @@ const Character = (props: IProps) => {
           </span>
 
           <span className="flex flex-row content-end">
-            <button className="view-more" onClick={props.onClick}>view</button>
+            <button className="view-more" onClick={props.onClick}>
+              view
+            </button>
           </span>
         </span>
       </div>

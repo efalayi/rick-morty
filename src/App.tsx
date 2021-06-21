@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import Character from "./components/character/index";
 import CharacterModal from "./components/character/modal";
-import { getCharacters } from "./api/http";
+import { getCharacters } from "./api/character";
 import { ICharacterModel } from "./api/types";
 
 function App() {

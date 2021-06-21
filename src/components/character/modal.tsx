@@ -20,7 +20,9 @@ const CharacterModal = (props: IProps) => {
         <div className="modal-content">
           <header className="modal__header">
             <h3>{character?.name}</h3>
-            <button className="modal-close" onClick={handleClose}>close</button>
+            <button className="modal-close" onClick={handleClose}>
+              close
+            </button>
           </header>
           <div className="modal-body">
             <span className="w-full flex flex-column">
